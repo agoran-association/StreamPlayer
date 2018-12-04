@@ -1,0 +1,54 @@
+.agora-player__box {
+  position: relative;
+  width: 240px;
+  height: 180px;
+}
+
+.agora-player__placeholder {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #EEEEEE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.agora-player__box.contain video{
+  object-fit: contain!important;
+}
+
+.agora-player__box.cover video{
+  object-fit: cover!important;
+}
+
+.agora-player__network {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: .3s all ease-in-out;
+}
+
+.agora-player__network img {
+  max-width: 100%; 
+}
+
+.agora-player__label {
+  position: absolute;
+  background: rgba(222, 222, 222, .5);
+  text-align: center;
+  font-size: 14px;
+  height: 20px;
+  width: 100%;
+  bottom: 0;
+  z-index: 2;
+  right: 0;
+}
