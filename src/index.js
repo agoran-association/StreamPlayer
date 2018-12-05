@@ -13,7 +13,7 @@ type Props = {
   video: boolean,
   audio: boolean,
   fit?: "cover" | "contain",
-  placeholder?: Object,
+  // placeholder?: Object,
 
   networkDetect?: boolean,
   speaking?: boolean,

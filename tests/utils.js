@@ -1,4 +1,4 @@
-export const createStream = ({video, audio, streamId, local}) => {
+export const createStream = ({video, audio, streamId, local, latency = '50'}) => {
   let stream = {
     id: streamId,
     _hasVideo: video,
@@ -6,38 +6,39 @@ export const createStream = ({video, audio, streamId, local}) => {
     local: local,
     video: video,
     audio: audio,
+    latency: latency,
     playing: false,
     close() {return},
     getStats(cb) {
       if (this.local) {
         cb({
-          audioSendBytes: '100',
-          audioSendPackets: '100',
-          audioSendPacketsLost: '100',
-          videoSendBytes: '100',
-          videoSendPackets: '100',
-          videoSendPacketsLost: '100',
-          videoSendFrameRate: '100',
-          videoSendResolutionWidth: '100',
-          videoSendResolutionHeight: '100',
-          accessDelay: '100'
+          audioSendBytes: this.latency,
+          audioSendPackets: this.latency,
+          audioSendPacketsLost: this.latency,
+          videoSendBytes: this.latency,
+          videoSendPackets: this.latency,
+          videoSendPacketsLost: this.latency,
+          videoSendFrameRate: this.latency,
+          videoSendResolutionWidth: this.latency,
+          videoSendResolutionHeight: this.latency,
+          accessDelay: this.latency
         })
       } else {
         cb({
-          audioReceiveBytes: '100',
-          audioReceivePackets: '100',
-          audioReceivePacketsLost: '100',
-          videoReceiveBytes: '100',
-          videoReceivePackets: '100',
-          videoReceivePacketsLost: '100',
-          videoReceiveFrameRate: '100',
-          videoReceiveDecodeFrameRate: '100',         
-          videoReceivedResolutionWidth: '100',          
-          videoReceivedResolutionHeight: '100',
-          accessDelay: '100',
-          endToEndDelay: '100',
-          videoReceiveDelay: '100',
-          audioReceiveDelay: '100',
+          audioReceiveBytes: this.latency,
+          audioReceivePackets: this.latency,
+          audioReceivePacketsLost: this.latency,
+          videoReceiveBytes: this.latency,
+          videoReceivePackets: this.latency,
+          videoReceivePacketsLost: this.latency,
+          videoReceiveFrameRate: this.latency,
+          videoReceiveDecodeFrameRate: this.latency,         
+          videoReceivedResolutionWidth: this.latency,          
+          videoReceivedResolutionHeight: this.latency,
+          accessDelay: this.latency,
+          endToEndDelay: this.latency,
+          videoReceiveDelay: this.latency,
+          audioReceiveDelay: this.latency,
         })
       }
       
@@ -83,7 +84,7 @@ export const createStream = ({video, audio, streamId, local}) => {
       return this.audio
     },
     isPlaying() {
-      return this.isPlaying
+      return this.playing
     },
   }
 
