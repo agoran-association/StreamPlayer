@@ -98,4 +98,12 @@ describe('Component', () => {
       expect(stream.isPlaying()).toBeTruthy()
     })
   })
+
+  it('Test side effects', () => {
+    let stream = createStream({streamId: 1024, video: true, audio: true, local: true})
+    expect(stream.isVideoOn()).toBeTruthy()
+    render(<StreamPlayer key={1024} stream={stream} video={false} audio={true} label="I am a stream"/>, node, () => {
+      expect(stream.isVideoOn()).toBeFalsy()
+    })
+  })
 })

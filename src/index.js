@@ -134,7 +134,7 @@ export default class extends Component<Props, State> {
     };
   };
 
-  componentDidUpdate() {
+  _handleStreamSideEffects = () => {
     // deal with side effect
     let $prev = this._snapshot;
     let $stream: Stream = (this.props.stream: any);
@@ -153,6 +153,12 @@ export default class extends Component<Props, State> {
       }
     }
 
+
+  }
+
+  componentDidUpdate() {
+    this._handleStreamSideEffects();
+
     // check detector
     if (this.props.networkDetect) {
       this.startNetworkDetector();
@@ -164,6 +170,8 @@ export default class extends Component<Props, State> {
   }
 
   componentDidMount() {
+    this._handleStreamSideEffects();
+
     // check detector
     if (this.props.networkDetect) {
       this.startNetworkDetector();
