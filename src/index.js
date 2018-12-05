@@ -61,10 +61,10 @@ export default class extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
+    this._snapshot = this._getSnapshot();
     this.state = {
       networkStatus: 0
     };
-    this._snapshot = this._getSnapshot();
   }
 
   startNetworkDetector = () => {
@@ -221,7 +221,7 @@ export default class extends Component<Props, State> {
           )}
         </div>
 
-        {/* decoration to display stream label */}
+        {/* display stream label */}
         {this.props.label && (
           <div className="agora-player__label">{this.props.label}</div>
         )}
