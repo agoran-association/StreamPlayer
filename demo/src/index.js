@@ -9,6 +9,7 @@ class Demo extends Component {
     video: true,
     audio: true,
     fit: true,
+    speaking: true,
     networkDetect: true,
     label: ''
   }
@@ -66,6 +67,7 @@ class Demo extends Component {
         <input onChange={this.handleSwitch} checked={this.state.video} type="checkbox" name="video" id="video"/>Video
         <input onChange={this.handleSwitch} checked={this.state.audio} type="checkbox" name="audio" id="audio"/>Audio
         <input onChange={this.handleSwitch} checked={this.state.fit} type="checkbox" name="fit" id="fit"/>Fit
+        <input onChange={this.handleSwitch} checked={this.state.speaking} type="checkbox" name="speaking" id="speaking"/>Speaking
         <input onChange={this.handleSwitch} checked={this.state.networkDetect} type="checkbox" name="networkDetect" id="networkDetect"/>networkDetect
         <input onChange={this.handleChange} value={this.state.label} type="text" name="label" id="label"/>
         {
@@ -76,6 +78,7 @@ class Demo extends Component {
             stream={this.state.stream}
             label={this.state.label}
             fit={this.state.fit ? 'cover':'contain'}
+            speaking={this.state.speaking}
             networkDetect={this.state.networkDetect}
             video={this.state.video} 
             audio={this.state.audio} />

@@ -4,7 +4,8 @@ import type { Client, Stream } from "../types/agora.js";
 import { SignalIcon } from "./decorations";
 import { xor } from "./utils";
 import AgoraIcon from "./assets/agora.png";
-import './style.css';
+import SpeakerIcon from "./assets/speaker.png";
+import "./style.css";
 
 type Props = {
   // basic
@@ -15,15 +16,15 @@ type Props = {
   placeholder?: Object,
 
   networkDetect?: boolean,
+  speaking?: boolean,
   // audioDetect?: boolean,
 
   label?: string,
 
   // others
-  children?: any,
-  key?: any,
+  key: any,
   className?: string,
-  style?: Object,
+  style?: Object
 };
 
 type State = {
@@ -31,7 +32,6 @@ type State = {
 };
 
 export default class extends Component<Props, State> {
-
   static defaultProps: Props = {
     stream: undefined,
     video: true,
@@ -40,9 +40,11 @@ export default class extends Component<Props, State> {
     placeholder: {},
 
     networkDetect: false,
+    speaking: false,
     // audioDetect: false,
-
-    className: '',
+    
+    key: undefined,
+    className: "",
     style: {},
   };
 
@@ -168,13 +170,16 @@ export default class extends Component<Props, State> {
     }
 
     // play stream
-    let stream = ((this.props.stream: any): Stream)
-    stream.play(`agora--player__${stream.getId()}`)
+    let stream = ((this.props.stream: any): Stream);
+    stream.play(`agora--player__${stream.getId()}`);
   }
 
   componentWillUnmount() {
-    let stream: Stream = (this.props.stream: any);
+    // check detecor
     this.stopNetworkDetector();
+
+    // stop stream
+    let stream = ((this.props.stream: any): Stream);
     if (stream && stream.isPlaying()) {
       stream.stop();
       stream.local && stream.close();
@@ -183,15 +188,15 @@ export default class extends Component<Props, State> {
 
   render() {
     const className = `agora-player__box 
-    ${this.props.fit === 'cover' ? 'cover' : 'contain'} 
-    ${this.props.className || ''} `;
+    ${this.props.fit === "cover" ? "cover" : "contain"} 
+    ${this.props.className || ""} `;
 
     const id = `agora--player__${((this.props.stream: any): Stream).getId()}`;
     return (
       <div className={className} id={id} style={this.props.style}>
-
         {/* mask */}
-        {(!this.props.video || !(this._snapshot && this._snapshot.hasVideo)) && (
+        {(!this.props.video ||
+          !(this._snapshot && this._snapshot.hasVideo)) && (
           <div className="agora-player__placeholder">
             <img
               style={{ maxWidth: "80%" }}
@@ -201,18 +206,26 @@ export default class extends Component<Props, State> {
           </div>
         )}
 
-        {/* decoration to display network status */}
-        { 
-          this.props.networkDetect && 
+        {/* decorations */}
+        <div className="agora-player__decorations">
+          {/* decoration to display network status */}
+          {this.props.networkDetect && (
             <SignalIcon level={this.state.networkStatus} />
-        }
+          )}
+
+          {/* decoration to show if this stream is speaking  */}
+          {this.props.speaking && (
+            <div className="agora-player__icon">
+              <img title="Is speaking" src={SpeakerIcon} alt="speaking" />
+            </div>
+          )}
+        </div>
 
         {/* decoration to display stream label */}
         {this.props.label && (
           <div className="agora-player__label">{this.props.label}</div>
         )}
 
-        {this.props.children}
       </div>
     );
   }

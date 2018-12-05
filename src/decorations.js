@@ -11,7 +11,7 @@ type SignalIconProps = {
 export function SignalIcon(props: SignalIconProps) {
   if (props.level === 1) {
     return (
-      <div className="agora-player__network">
+      <div className="agora-player__icon">
         <img
           title="Poor Network latency"
           src={WarnIcon}
@@ -21,7 +21,7 @@ export function SignalIcon(props: SignalIconProps) {
     );
   } else if (props.level === 2) {
     return (
-      <div className="agora-player__network">
+      <div className="agora-player__icon">
         <img 
           title="Severe Network latency"
           src={DangerIcon} 
@@ -31,7 +31,7 @@ export function SignalIcon(props: SignalIconProps) {
     );
   } else {
     return (
-      <div className="agora-player__network">
+      <div className="agora-player__icon">
         <img 
           title="Good Network"
           src={InfoIcon} 
