@@ -1,6 +1,6 @@
 {
   "name": "agora-stream-player",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0-alpha.3",
   "description": "StreamPlayer React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -11,7 +11,7 @@
     "umd"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
+    "build": "nwb build-react-component --copy-files",
     "clean": "nwb clean-module && nwb clean-demo",
     "prepublishOnly": "npm run build",
     "start": "nwb serve-react-demo",
@@ -22,7 +22,7 @@
   "dependencies": {},
   "peerDependencies": {
     "react": "16.x",
-    "agora-rtc-sdk": "2.5.x"
+    "agora-rtc-sdk": ">=2.4.x"
   },
   "devDependencies": {
     "agora-rtc-sdk": "^2.5.0",
@@ -31,11 +31,21 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Hao Yang <tillohao@gmail.com>",
+  "homepage": "https://github.com/menthays/StreamPlayer#readme",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/menthays/StreamPlayer.git"
+  },
   "keywords": [
     "react-component"
-  ]
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "bugs": {
+    "url": "https://github.com/menthays/StreamPlayer/issues"
+  }
 }

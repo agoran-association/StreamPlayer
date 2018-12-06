@@ -12,19 +12,27 @@
   width: 100%;
   height: 100%;
   background: #EEEEEE;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .agora-player__box.contain video{
   left: 0;
-  object-fit: contain!important;
+  -o-object-fit: contain!important;
+     object-fit: contain!important;
 }
 
 .agora-player__box.cover video{
   left: 0;
-  object-fit: cover!important;
+  -o-object-fit: cover!important;
+     object-fit: cover!important;
 }
 
 .agora-player__decorations {
@@ -35,12 +43,20 @@
 }
 
 .agora-player__icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   margin: 3px;
   width: 24px;
   height: 24px;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: .3s all ease-in-out;
+  -o-transition: .3s all ease-in-out;
   transition: .3s all ease-in-out;
 }
 
@@ -60,3 +76,5 @@
   z-index: 2;
   right: 0;
 }
+
+/*# sourceMappingURL=demo.4775f81f.css.map*/

@@ -26,7 +26,7 @@ import AgoraRTC from 'agora-rtc-sdk'
 
 class Demo extends Component {
   state = {
-    stream: {}
+    stream: null
   }
 
   componentDidMount() {
@@ -44,14 +44,15 @@ class Demo extends Component {
 
   render() {
     return (
-      <StreamPlayer
+      {/** You'd better use conditional render to make it mount/unmount properly */}
+      {this.state.stream && <StreamPlayer
         key={1024} 
         video={true} 
         audio={true} 
         stream={this.state.stream}
         fit="contain"
         label="A stream"  
-      />
+      />}
     )
   }
 }

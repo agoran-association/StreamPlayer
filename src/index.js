@@ -61,7 +61,11 @@ export default class extends Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this._snapshot = this._getSnapshot();
+    try {
+      this._snapshot = this._getSnapshot();
+    } catch(err) {
+      throw new Error('The stream you passed is invalid!')
+    }
     this.state = {
       networkStatus: 0
     };
