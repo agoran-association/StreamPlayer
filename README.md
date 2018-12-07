@@ -20,7 +20,7 @@ npm install agora-stream-player
 
 App.js
 
-```
+```javascript
 import StreamPlayer from 'agora-stream-player'
 import AgoraRTC from 'agora-rtc-sdk'
 
@@ -72,8 +72,8 @@ class Demo extends Component {
 #### speaking?: boolean
   Mark the speaker with an icon
 #### label?: string
-  Show some description for the stream
-####className?: string,
+  Show some description for the stream  
+####className?: string
 #### style?: Object
 
 ## Develop
