@@ -3,7 +3,7 @@
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+[![codecov](https://codecov.io/gh/menthays/StreamPlayer/branch/master/graph/badge.svg)](https://codecov.io/gh/menthays/StreamPlayer)
 
 ## Feature
 - Declarative stream player controlling stream by props
@@ -108,6 +108,3 @@ npm run test:coverage
 
 [npm-badge]: https://img.shields.io/npm/v/agora-stream-player.png?style=flat-square
 [npm]: https://www.npmjs.org/package/agora-stream-player
-
-[coveralls-badge]: https://img.shields.io/coveralls/menthays/StreamPlayer/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/menthays/StreamPlayer
