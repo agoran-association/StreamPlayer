@@ -73,8 +73,10 @@ class Demo extends Component {
   Mark the speaker with an icon
 #### label?: string
   Show some description for the stream  
-####className?: string
+#### className?: string
+  className
 #### style?: Object
+  style
 
 ## Develop
 ## Project setup
