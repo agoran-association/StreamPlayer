@@ -106,7 +106,7 @@ npm run test:coverage
 [build-badge]: https://img.shields.io/travis/menthays/StreamPlayer/master.png?style=flat-square
 [build]: https://travis-ci.org/menthays/StreamPlayer
 
-[npm-badge]: https://img.shields.io/npm/v/agora-stream-player?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/agora-stream-player.png?style=flat-square
 [npm]: https://www.npmjs.org/package/agora-stream-player
 
 [coveralls-badge]: https://img.shields.io/coveralls/menthays/StreamPlayer/master.png?style=flat-square
