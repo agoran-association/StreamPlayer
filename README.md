@@ -77,6 +77,10 @@ class Demo extends Component {
   className
 #### style?: Object
   style
+#### onClick?: Function
+  click event
+#### onDoubleClick?: Function
+  dblclick event
 
 ## Develop
 ## Project setup
