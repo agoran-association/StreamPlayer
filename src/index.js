@@ -145,14 +145,14 @@ export default class extends Component<Props, State> {
 
     // check video
     if (xor($prev.videoOn, this.props.video)) {
-      if ($prev.hasVideo) {
+      if ($stream.hasVideo()) {
         this.props.video ? $stream.enableVideo() : $stream.disableVideo();
       }
     }
 
     // check audio
     if (xor($prev.audioOn, this.props.audio)) {
-      if ($prev.hasAudio) {
+      if ($stream.hasAudio()) {
         this.props.audio ? $stream.enableAudio() : $stream.disableAudio();
       }
     }
