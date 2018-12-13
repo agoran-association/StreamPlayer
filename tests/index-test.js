@@ -1,6 +1,7 @@
 import expect from 'expect'
 import React from 'react'
 import {render, unmountComponentAtNode} from 'react-dom'
+import ReactTestUtils from 'react-dom/test-utils';
 
 import { createStream } from './utils'
 
@@ -104,6 +105,18 @@ describe('Component', () => {
     expect(stream.isVideoOn()).toBeTruthy()
     render(<StreamPlayer key={1024} stream={stream} video={false} audio={true} label="I am a stream"/>, node, () => {
       expect(stream.isVideoOn()).toBeFalsy()
+    })
+  })
+
+  it('Test click event', () => {
+    let stream = createStream({streamId: 1024, video: true, audio: true, local: true})
+    let flag = true
+    render(<StreamPlayer key={1024} stream={stream} video={true} audio={true} onClick={_ => {flag=false}} onDoubleClick={_ => {flag='hello'}}/>, node, () => {
+      let target = node.firstChild;
+      ReactTestUtils.Simulate.click(target)
+      expect(flag).toBeFalsy()
+      ReactTestUtils.Simulate.doubleClick(target)
+      expect(flag).toBe('hello')
     })
   })
 })

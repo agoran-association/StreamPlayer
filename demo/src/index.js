@@ -42,23 +42,6 @@ class Demo extends Component {
         })
       }, 2000)
     })
-
-    setTimeout(() => {
-      let stream2 = AgoraRTC.createStream({
-        streamID: 1025,
-        video: true,
-        audio: true,
-        screen: false,
-      });
-      stream2.init(() => {
-        setTimeout(() => {
-          this.setState({
-            stream: stream2
-          })
-        }, 2000)
-      })
-    }, 10000)
-
   }
 
   render() {
@@ -79,6 +62,8 @@ class Demo extends Component {
             label={this.state.label}
             fit={this.state.fit ? 'cover':'contain'}
             speaking={this.state.speaking}
+            // onClick={_ => alert('clicked!')}
+            onDoubleClick={_ => alert('double clicked!')}
             networkDetect={this.state.networkDetect}
             video={this.state.video} 
             audio={this.state.audio} />

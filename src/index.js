@@ -24,7 +24,9 @@ type Props = {
   // others
   key: any,
   className?: string,
-  style?: Object
+  style?: Object,
+  onClick?: Function,
+  onDoubleClick?: Function,
 };
 
 type State = {
@@ -204,8 +206,15 @@ export default class extends Component<Props, State> {
     ${this.props.className || ""} `;
 
     const id = `agora--player__${((this.props.stream: any): Stream).getId()}`;
+    
+    const {onClick, onDoubleClick, style} = this.props
     return (
-      <div className={className} id={id} style={this.props.style}>
+      <div 
+        onClick={onClick} 
+        onDoubleClick={onDoubleClick}
+        style={style}
+        className={className} 
+        id={id}>
         {/* mask */}
         {(!this.props.video ||
           !(this._snapshot && this._snapshot.hasVideo)) && (
