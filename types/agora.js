@@ -27,6 +27,7 @@ export interface Stream {
   stop: Function;
   hasVideo: Function;
   hasAudio: Function;
+  hasScreen: Function;
   isVideoOn: Function;
   isAudioOn: Function;
   isPlaying: Function;

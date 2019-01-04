@@ -132,7 +132,7 @@ export default class extends Component<Props, State> {
     let stream: Stream = (this.props.stream: any);
     return {
       id: stream.getId(),
-      hasVideo: stream.hasVideo(),
+      hasVideo: stream.hasVideo() || stream.hasScreen(),
       hasAudio: stream.hasAudio(),
       videoOn: stream.isVideoOn(),
       audioOn: stream.isAudioOn(),
