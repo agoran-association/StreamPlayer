@@ -196,7 +196,7 @@ export default class extends Component<Props, State> {
     let stream = ((this.props.stream: any): Stream);
     if (stream && stream.isPlaying()) {
       stream.stop();
-      stream.local && stream.close();
+      // stream.local && stream.close();
     }
   }
 
