@@ -70,7 +70,9 @@ class Demo extends Component {
 #### networkDetect?: boolean
   Detect network status periodically and show an icon
 #### speaking?: boolean
-  Mark the speaker with an icon
+  Mark the speaker with an icon  
+#### appendIcon?: JSX Object  
+  Add more custom icons
 #### label?: string
   Show some description for the stream  
 #### className?: string
