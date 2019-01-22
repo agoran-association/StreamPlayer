@@ -62,6 +62,7 @@ class Demo extends Component {
             label={this.state.label}
             fit={this.state.fit ? 'cover':'contain'}
             speaking={this.state.speaking}
+            appendIcon={(<div className="agora-player__icon">Append Icon</div>)}
             // onClick={_ => alert('clicked!')}
             onDoubleClick={_ => alert('double clicked!')}
             networkDetect={this.state.networkDetect}

@@ -18,6 +18,7 @@ type Props = {
   networkDetect?: boolean,
   speaking?: boolean,
   // audioDetect?: boolean,
+  appendIcon?: Object,
 
   label?: string,
 
@@ -240,6 +241,8 @@ export default class extends Component<Props, State> {
               <img title="Is speaking" src={SpeakerIcon} alt="speaking" />
             </div>
           )}
+
+          {this.props.appendIcon}
         </div>
 
         {/* display stream label */}
