@@ -119,4 +119,12 @@ describe('Component', () => {
       expect(flag).toBe('hello')
     })
   })
+
+  // append icon 
+  it('Test append icon', () => {
+    let stream = createStream({streamId: 1024, video: true, audio: true, local: true})
+    render(<StreamPlayer key={1024} stream={stream} video={true} audio={true} appendIcon={<div>Append Icon</div>}/>, node, () => {
+      expect(node.innerHTML).toContain('Append Icon')
+    })
+  })
 })
