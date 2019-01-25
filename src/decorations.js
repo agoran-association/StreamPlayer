@@ -30,14 +30,15 @@ export function SignalIcon(props: SignalIconProps) {
       </div>
     );
   } else {
-    return (
-      <div className="agora-player__icon">
-        <img 
-          title="Good Network"
-          src={InfoIcon} 
-          alt="good-signal" 
-        />
-      </div>
-    );
+    // return (
+    //   <div className="agora-player__icon">
+    //     <img 
+    //       title="Good Network"
+    //       src={InfoIcon} 
+    //       alt="good-signal" 
+    //     />
+    //   </div>
+    // );
+    return null;
   }
 }
