@@ -1,6 +1,6 @@
 {
   "name": "agora-stream-player",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "StreamPlayer React component",
   "main": "lib/index.js",
   "module": "es/index.js",
