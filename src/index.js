@@ -19,7 +19,7 @@ type Props = {
   speaking?: boolean,
   // audioDetect?: boolean,
   appendIcon?: Object,
-
+  prependIcon?: Object,
   label?: string,
 
   // others
@@ -230,6 +230,8 @@ export default class extends Component<Props, State> {
 
         {/* decorations */}
         <div className="agora-player__decorations">
+          {this.props.prependIcon}
+
           {/* decoration to display network status */}
           {this.props.networkDetect && (
             <SignalIcon level={this.state.networkStatus} />
