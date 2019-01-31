@@ -21,7 +21,7 @@ type Props = {
   appendIcon?: Object,
   prependIcon?: Object,
   label?: string,
-
+  autoChange?: boolean,
   // others
   key: any,
   className?: string,
@@ -45,7 +45,7 @@ export default class extends Component<Props, State> {
     networkDetect: false,
     speaking: false,
     // audioDetect: false,
-    
+    autoChange: true,
     key: undefined,
     className: "",
     style: {},
@@ -142,6 +142,9 @@ export default class extends Component<Props, State> {
   };
 
   _handleStreamSideEffects = () => {
+    if (!this.props.autoChange) {
+      return;
+    }
     // deal with side effect
     let $prev = this._snapshot;
     let $stream: Stream = (this.props.stream: any);

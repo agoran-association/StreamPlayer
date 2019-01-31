@@ -109,6 +109,14 @@ describe('Component', () => {
     })
   })
 
+  it('Test disable automatically solve for side effects', () => {
+    let stream = createStream({streamId: 1024, video: true, audio: true, local: true})
+    expect(stream.isVideoOn()).toBeTruthy()
+    render(<StreamPlayer key={1024} stream={stream} video={false} audio={true} autoChange={false} label="I am a stream"/>, node, () => {
+      expect(stream.isVideoOn()).toBeTruthy()
+    })
+  })
+
   it('Test click event', () => {
     let stream = createStream({streamId: 1024, video: true, audio: true, local: true})
     let flag = true

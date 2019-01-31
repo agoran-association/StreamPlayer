@@ -65,6 +65,8 @@ class Demo extends Component {
   Enable video or not
 #### audio: boolean
   Enable audio or not
+#### autoChange?: boolean
+  Whether to automatically solve side effects for audio & video, default to be true
 #### fit?: "cover" | "contain",
   Use cover or contain display mode
 #### networkDetect?: boolean
