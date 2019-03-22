@@ -23,7 +23,6 @@ type Props = {
   label?: string,
   autoChange?: boolean,
   // others
-  key: any,
   className?: string,
   style?: Object,
   onClick?: Function,
@@ -46,7 +45,6 @@ export default class extends Component<Props, State> {
     speaking: false,
     // audioDetect: false,
     autoChange: true,
-    key: undefined,
     className: "",
     style: {},
   };
