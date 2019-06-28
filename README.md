@@ -73,10 +73,12 @@ class Demo extends Component {
   Detect network status periodically and show an icon
 #### speaking?: boolean
   Mark the speaker with an icon  
-#### appendIcon?: JSX Element  
+#### appendIcon?: ReactNode 
   Add more custom icons etc
-#### prependIcon?: JSX Element  
+#### prependIcon?: ReactNode 
   Add more custom icons etc
+#### placeholder?: ReactNode 
+  Add custom placeholder to replace default one
 #### label?: string
   Show some description for the stream  
 #### className?: string

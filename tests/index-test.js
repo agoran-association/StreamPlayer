@@ -144,4 +144,12 @@ describe('Component', () => {
       expect(node.innerHTML).toContain('Prepend Icon')
     })
   })
+
+  // placeholder
+  it('Test placeholder', () => {
+    let stream = createStream({streamId: 1024, video: true, audio: true, local: true})
+    render(<StreamPlayer key={1024} stream={stream} video={false} audio={true} placeholder={<div>placeholderasd</div>}/>, node, () => {
+      expect(node.innerHTML).toContain('placeholderasd')
+    })
+  })
 })

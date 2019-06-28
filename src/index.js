@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from "react";
+import type { Node } from "react";
 import type { Client, Stream } from "../types/agora.js";
 import { SignalIcon } from "./decorations";
 import { xor } from "./utils";
@@ -13,20 +14,20 @@ type Props = {
   video: boolean,
   audio: boolean,
   fit?: "cover" | "contain",
-  // placeholder?: Object,
+  placeholder?: Node,
 
   networkDetect?: boolean,
   speaking?: boolean,
   // audioDetect?: boolean,
-  appendIcon?: Object,
-  prependIcon?: Object,
+  appendIcon?: Node,
+  prependIcon?: Node,
   label?: string,
   autoChange?: boolean,
   // others
   className?: string,
   style?: Object,
   onClick?: Function,
-  onDoubleClick?: Function,
+  onDoubleClick?: Function
 };
 
 type State = {
@@ -39,14 +40,13 @@ export default class extends Component<Props, State> {
     video: true,
     audio: true,
     fit: "cover",
-    placeholder: {},
 
     networkDetect: false,
     speaking: false,
     // audioDetect: false,
     autoChange: true,
     className: "",
-    style: {},
+    style: {}
   };
 
   _networkDetector: IntervalID;
@@ -64,8 +64,8 @@ export default class extends Component<Props, State> {
     super(props);
     try {
       this._snapshot = this._getSnapshot();
-    } catch(err) {
-      throw new Error('The stream you passed is invalid!')
+    } catch (err) {
+      throw new Error("The stream you passed is invalid!");
     }
     this.state = {
       networkStatus: 0
@@ -160,9 +160,7 @@ export default class extends Component<Props, State> {
         this.props.audio ? $stream.enableAudio() : $stream.disableAudio();
       }
     }
-
-
-  }
+  };
 
   componentDidUpdate() {
     this._handleStreamSideEffects();
@@ -208,24 +206,29 @@ export default class extends Component<Props, State> {
     ${this.props.className || ""} `;
 
     const id = `agora--player__${((this.props.stream: any): Stream).getId()}`;
-    
-    const {onClick, onDoubleClick, style} = this.props
+
+    const { onClick, onDoubleClick, style } = this.props;
     return (
-      <div 
-        onClick={onClick} 
+      <div
+        onClick={onClick}
         onDoubleClick={onDoubleClick}
         style={style}
-        className={className} 
-        id={id}>
+        className={className}
+        id={id}
+      >
         {/* mask */}
         {(!this.props.video ||
           !(this._snapshot && this._snapshot.hasVideo)) && (
           <div className="agora-player__placeholder">
-            <img
-              style={{ maxWidth: "80%" }}
-              src={AgoraIcon}
-              alt="placeholder for video"
-            />
+            {this.props.placeholder ? (
+              this.props.placeholder
+            ) : (
+              <img
+                style={{ maxWidth: "80%" }}
+                src={AgoraIcon}
+                alt="placeholder for video"
+              />
+            )}
           </div>
         )}
 
@@ -252,7 +255,6 @@ export default class extends Component<Props, State> {
         {this.props.label && (
           <div className="agora-player__label">{this.props.label}</div>
         )}
-
       </div>
     );
   }
