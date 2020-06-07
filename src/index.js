@@ -253,7 +253,7 @@ export default class extends Component<Props, State> {
 
         {/* display stream label */}
         {this.props.label && (
-          <div className="agora-player__label">{this.props.label}</div>
+          <div className={`agora-player__label ` + this.props.labelClass}>{this.props.label}</div>
         )}
       </div>
     );
