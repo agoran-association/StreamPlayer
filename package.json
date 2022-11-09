@@ -27,7 +27,7 @@
   "devDependencies": {
     "agora-rtc-sdk": "^2.5.0",
     "flow-bin": "^0.87.0",
-    "nwb": "0.23.x",
+    "nwb": "0.25.x",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
